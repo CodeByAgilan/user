@@ -2,6 +2,7 @@ import React,{useEffect, useState} from "react";
 import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import BarChart from "./BarChart";
 import { chartData } from "../utils/Data";
+import Navbar from "../components/Navbar";
 import '../App'
 import { PieChart, Pie, Cell } from "recharts";
 
@@ -272,48 +273,85 @@ export default function Dashboard(props) {
                 color: '#1a1f3a',
                 margin: '0',
                 letterSpacing: '0.3px',
-              }}>User Activity Over Time</h2>
-            </div>
-
-            <div style={{ maxWidth: "700px", margin: "0 auto" }} id="BarChart">
-                <BarChart data={chartData} />
+              }}>Analytics Overview</h2>
             </div>
 
             <div style={{
-              marginTop: '40px',
-              paddingBottom: '15px',
-              borderBottom: '2px solid #00c49f',
+              display: 'flex',
+              gap: '30px',
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginTop: '30px',
+              flexWrap: 'wrap',
             }}>
-              <h2 style={{
-                fontSize: '18px',
-                fontWeight: '700',
-                color: '#1a1f3a',
-                margin: '0',
-                letterSpacing: '0.3px',
-              }}>Eye Color Distribution</h2>
-            </div>
+              <div style={{
+                width: '450px',
+                height: '400px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: 'white',
+                borderRadius: '12px',
+                padding: '20px',
+                boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
+              }} id="BarChart">
+                <h3 style={{
+                  fontSize: '16px',
+                  fontWeight: '600',
+                  color: '#1a1f3a',
+                  margin: '0 0 15px 0',
+                  width: '100%',
+                  textAlign: 'center',
+                }}>User Activity Over Time</h3>
+                <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                  <BarChart data={chartData} />
+                </div>
+              </div>
 
-            <div id="PieChart">
-              {!loading && eyeColorData.length > 0 ? (
-                <PieChart width={Math.min(window.innerWidth - 100, 600)} height={400}>
-                  <Pie
-                    data={eyeColorData}
-                    cx={Math.min(window.innerWidth - 100, 600) / 2}
-                    cy={200}
-                    labelLine={false}
-                    label={renderCustomizedLabel}
-                    outerRadius={120}
-                    fill="#8884d8"
-                    dataKey="value"
-                  >
-                    {eyeColorData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                    ))}
-                  </Pie>
-                </PieChart>
-              ) : (
-                <p style={{ textAlign: 'center', color: '#999' }}>Loading eye color data...</p>
-              )}
+              <div style={{
+                width: '450px',
+                height: '400px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: 'white',
+                borderRadius: '12px',
+                padding: '20px',
+                boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
+              }} id="PieChart">
+                <h3 style={{
+                  fontSize: '16px',
+                  fontWeight: '600',
+                  color: '#1a1f3a',
+                  margin: '0 0 15px 0',
+                  width: '100%',
+                  textAlign: 'center',
+                }}>Eye Color Distribution</h3>
+                {!loading && eyeColorData.length > 0 ? (
+                  <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <PieChart width={380} height={300}>
+                      <Pie
+                        data={eyeColorData}
+                        cx={190}
+                        cy={150}
+                        labelLine={false}
+                        label={renderCustomizedLabel}
+                        outerRadius={100}
+                        fill="#8884d8"
+                        dataKey="value"
+                      >
+                        {eyeColorData.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                        ))}
+                      </Pie>
+                    </PieChart>
+                  </div>
+                ) : (
+                  <p style={{ textAlign: 'center', color: '#999' }}>Loading eye color data...</p>
+                )}
+              </div>
             </div>
 
           </div>
