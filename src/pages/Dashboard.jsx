@@ -127,9 +127,9 @@ export default function Dashboard(props) {
               <div style={{
                 background: 'linear-gradient(135deg, #007bff 0%, #0056b3 100%)',
                 color: 'white',
-                padding: '35px 30px',
+                padding: '20px 20px',
                 borderRadius: '12px',
-                marginBottom: '30px',
+                marginBottom: '15px',
                 textAlign: 'left',
                 boxShadow: '0 8px 24px rgba(0, 123, 255, 0.2)',
                 border: '1px solid rgba(255, 255, 255, 0.1)',
@@ -263,8 +263,8 @@ export default function Dashboard(props) {
 
 
             <div style={{
-              marginTop: '30px',
-              paddingBottom: '15px',
+              marginTop: '15px',
+              paddingBottom: '10px',
               borderBottom: '2px solid #007bff',
             }}>
               <h2 style={{
@@ -278,22 +278,23 @@ export default function Dashboard(props) {
 
             <div style={{
               display: 'flex',
-              gap: '30px',
+              gap: '15px',
               justifyContent: 'center',
               alignItems: 'center',
-              marginTop: '30px',
+              marginTop: '15px',
               flexWrap: 'wrap',
             }}>
               <div style={{
-                width: '450px',
-                height: '400px',
+                width: '45%',
+                minWidth: '300px',
+                height: '300px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
                 backgroundColor: 'white',
                 borderRadius: '12px',
-                padding: '20px',
+                padding: '15px',
                 boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
               }} id="BarChart">
                 <h3 style={{
@@ -310,15 +311,16 @@ export default function Dashboard(props) {
               </div>
 
               <div style={{
-                width: '450px',
-                height: '400px',
+                width: '45%',
+                minWidth: '300px',
+                height: '300px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
                 backgroundColor: 'white',
                 borderRadius: '12px',
-                padding: '20px',
+                padding: '15px',
                 boxShadow: '0 4px 15px rgba(0,0,0,0.08)',
               }} id="PieChart">
                 <h3 style={{
